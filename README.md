@@ -2,6 +2,8 @@
 
 [![CI Build Status](https://secure.travis-ci.org/kylewelsby/element-from-absolute-point.png?branch=master)][travis]
 [![Bower version](https://badge.fury.io/bo/element-from-absolute-point.png)][bower]
+[![Dependency Status](https://gemnasium.com/kylewelsby/element-from-absolute-point.png)][gemnasium]
+
 
 This little library adds support for finding elements using absolute `X`/`Y` coordinates of the page, especially when elements are not currently visible on the page. 
 
@@ -34,7 +36,8 @@ var element = document.elementFromAbsolutePoint(1000000, 1000000);
 
 ## License
 
-This library is distributed under the MIT license.  Please see the [LICENSE](https://github.com/kylewelsby/element-from-absolute-point/LICENSE.md) file.
+This library is distributed under the MIT license.  Please see the [LICENSE](https://github.com/kylewelsby/element-from-absolute-point/blob/master/LICENSE) file.
 
 [travis]:http://travis-ci.org/kylewelsby/element-from-absolute-point
 [bower]:http://badge.fury.io/bo/element-from-absolute-point
+[gemnasium]:https://gemnasium.com/kylewelsby/element-from-absolute-point
