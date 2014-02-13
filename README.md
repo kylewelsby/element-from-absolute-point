@@ -1,6 +1,6 @@
 # JavaScript `document.elementFromAbsolutePoint()`
 
-[![CI Build Status](https://secure.travis-ci.org/kylewelsby/element-from-absolute-point.png?branch=master)][travis]
+[![CI Build Status](https://api.travis-ci.org/kylewelsby/element-from-absolute-point.png)][travis]
 [![Bower version](https://badge.fury.io/bo/element-from-absolute-point.png)][bower]
 [![Dependency Status](https://gemnasium.com/kylewelsby/element-from-absolute-point.png)][gemnasium]
 
