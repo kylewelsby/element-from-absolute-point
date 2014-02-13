@@ -1,0 +1,31 @@
+{
+  "name": "element-from-absolute-point",
+  "version": "0.0.1",
+  "description": "Support for finding elements using absolute `X`/`Y` coordinates of the page, especially when elements are not currently visible on the page.",
+  "main": "element-from-absolute-point.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "testem ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kylewelsby/element-from-absolute-point"
+  },
+  "keywords": [
+    "elementFromPoint",
+    "document.elementFromPoint",
+    "absoulte",
+    "coordinates"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kylewelsby/element-from-absolute-point/issues"
+  },
+  "author": "Kyle Welsby <kyle@mekyle.com> (http://mekyle.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "testem": "~0.6.7"
+  }
+}
