@@ -9,7 +9,7 @@
     newX = x - window.pageXOffset;
     newY = y - window.pageYOffset;
     elm = this.elementFromPoint(newX, newY);
-    if (elm.style.position === 'fixed') {
+    if (window.getComputedStyle(elm).position === 'fixed') {
       var newElm, display;
       display = elm.style.display;
       elm.style.display = 'none';
