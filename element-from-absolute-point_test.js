@@ -1,19 +1,28 @@
-(function(){
+(function() {
   'use strict';
-  describe('document.elementFromAbsolutePoint', function () {
+  describe('document.elementFromAbsolutePoint', function() {
     var elm, pointX, pointY;
-    function addPositionFixed(){
+
+    function addPositionFixed() {
       var elm = document.createElement('div');
       elm.innerHTML = '';
       elm.style.position = 'fixed';
       elm.style.top = '0px';
       elm.style.left = '0px';
       elm.style.zIndex = '101';
+      elm.style.display = 'block';
       elm.style.width = '100%';
       elm.style.height = '100px';
       elm.style.backgroundColor = '#000';
-      document.getElementById('jasmine_content').appendChild(elm);
+      var inner = document.createElement('div');
+      inner.innerHTML = 'Header';
+      elm.appendChild(inner);
+      var wrap = document.createElement('div');
+      wrap.innerHTML = '';
+      wrap.appendChild(elm);
+      document.getElementById('jasmine_content').appendChild(wrap);
     }
+
     beforeEach(function() {
       document.getElementById('jasmine_content').innerHTML = '';
       pointX = 1000;
@@ -23,59 +32,77 @@
       elm.id = 'item';
       elm.innerHTML = 'hello world';
       elm.style.marginTop = pointY + 'px';
-      elm.style.marginLeft = pointX +'px';
+      elm.style.marginLeft = pointX + 'px';
       elm.style.marginBottom = '1000px';
 
       document.getElementById('jasmine_content').appendChild(elm);
     });
 
-    afterEach(function (){
-      window.scrollTo(0,0);
+    afterEach(function() {
+      window.scrollTo(0, 0);
       document.getElementById('jasmine_content').innerHTML = '';
     });
 
-    it('gets element by point which is out of bounds from viewpoint', function(){
-      var actual
-      actual = document.elementFromAbsolutePoint(pointX, pointY)
-      expect(actual).not.toBe(null);
-      expect(actual.toString()).toBe('[object HTMLDivElement]');
-    });
-
-    it('gets element by point event if screen is scrolled', function () {
+    it('gets element by point which is out of bounds from viewpoint', function() {
       var actual;
-      window.scrollTo(100,100);
-      actual = document.elementFromAbsolutePoint(pointX, pointY)
+      actual = document.elementFromAbsolutePoint(pointX, pointY);
       expect(actual).not.toBe(null);
       expect(actual.toString()).toBe('[object HTMLDivElement]');
     });
 
-    it('gets an absolute positioned element', function () {
+    it('gets element by point event if screen is scrolled', function() {
+      var actual;
+      window.scrollTo(100, 100);
+      actual = document.elementFromAbsolutePoint(pointX, pointY);
+      expect(actual).not.toBe(null);
+      expect(actual.toString()).toBe('[object HTMLDivElement]');
+    });
+
+    it('gets an absolute positioned element', function() {
       var actual, rec;
       elm.style.position = 'absolute';
       rec = elm.getBoundingClientRect();
-      actual = document.elementFromAbsolutePoint(rec.left, rec.top)
+      actual = document.elementFromAbsolutePoint(rec.left, rec.top);
       expect(actual).not.toBe(null);
       expect(actual.toString()).toBe('[object HTMLDivElement]');
     });
 
-    it('gets an element that is not outside the viewport', function () {
+    it('gets an element that is not outside the viewport', function() {
       var actual, rec;
       elm.style.marginLeft = '10px';
       elm.style.marginTop = '10px';
       rec = elm.getBoundingClientRect();
-      actual = document.elementFromAbsolutePoint(rec.left, rec.top)
+      actual = document.elementFromAbsolutePoint(rec.left, rec.top);
       expect(actual).not.toBe(null);
       expect(actual.toString()).toBe('[object HTMLDivElement]');
     });
 
-    it('gets an element excluding position fixed', function (){
+    it('gets an element excluding position fixed', function() {
       addPositionFixed();
       var actual, rec;
       rec = elm.getBoundingClientRect();
       actual = document.elementFromAbsolutePoint(rec.left, rec.top);
       expect(actual).not.toBe(null);
-      console.log(actual.textContent);
       expect(actual.textContent).toEqual('hello world');
+    });
+
+    it('gets an element excluding floating header', function() {
+      addPositionFixed();
+      var actual, rec;
+      elm.style.marginTop = '100px';
+      rec = elm.getBoundingClientRect();
+      actual = document.elementFromAbsolutePoint(rec.left, rec.top);
+      expect(actual).not.toBe(null);
+      expect(actual.textContent).toEqual('hello world');
+    });
+
+    it('gets an element including floating header', function() {
+      addPositionFixed();
+      var actual, rec;
+      elm.style.marginTop = '100px';
+      actual = document.elementFromAbsolutePoint(0, 0);
+      expect(actual).not.toBe(null);
+      expect(actual.textContent).toEqual('Header');
     });
   });
 }).call(this);

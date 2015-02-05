@@ -17,7 +17,7 @@ The native `document.elementFromPoint()` only will return elements relative to t
 ## Installation
 
     bower install --save element-from-absolute-point
-    
+
 ## Usage
 
 Use as you would with `document.elementFromPoint`.

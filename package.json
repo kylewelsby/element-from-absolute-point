@@ -1,6 +1,6 @@
 {
   "name": "element-from-absolute-point",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Support for finding elements using absolute `X`/`Y` coordinates of the page, especially when elements are not currently visible on the page.",
   "main": "element-from-absolute-point.js",
   "directories": {
