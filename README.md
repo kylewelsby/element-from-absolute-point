@@ -1,8 +1,8 @@
 # JavaScript `document.elementFromAbsolutePoint()`
 
-[![CI Build Status](https://api.travis-ci.org/kylewelsby/element-from-absolute-point.png)][travis]
-[![Bower version](https://badge.fury.io/bo/element-from-absolute-point.png)][bower]
-[![Dependency Status](https://gemnasium.com/kylewelsby/element-from-absolute-point.png)][gemnasium]
+[![CI Build Status](https://travis-ci.org/kylewelsby/element-from-absolute-point.svg?branch=master)][travis]
+[![Bower version](https://badge.fury.io/js/element-from-absolute-point.svg)][bower]
+[![Dependency Status](https://gemnasium.com/kylewelsby/element-from-absolute-point.svg)][gemnasium]
 
 
 This little library adds support for finding elements using absolute `X`/`Y` coordinates of the page, especially when elements are not currently visible on the page. 
